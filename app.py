@@ -18,7 +18,8 @@ def index():
 
 @app.route("/get_number", methods=["POST"])
 def get_number():
-    search = str(request.form["number"])
+    #search = str(request.form["number"])
+    search = request.get_json()["number"]
     print(search)
     url = 'https://www.yes24.com/Product/Search?domain=ALL&query=' + search.replace(' ', '%20')
     response = requests.get(url)
