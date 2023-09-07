@@ -28,8 +28,8 @@ def get_number():
     soup = BeautifulSoup(html_data, 'html.parser')
     item_info = soup.select('#yesSchList > li > div > div.item_img > div.img_canvas > span > span > a > em > img')
     p = str(item_info[0]).replace('"',',').split(',')
-    print(p[1])
-    print(p[7])
+    print(p[1]) #책 제목
+    print(p[7]) #책 이미지
     prize_1 = soup.select('#yesSchList > li:nth-child(1) > div > div.item_info > div.info_row.info_price > strong > em')
     
     return jsonify({"result": p[7]})
